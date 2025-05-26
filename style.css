@@ -31,8 +31,26 @@ font-weight: 550;
 cursor: pointer;
 width: 100px;
 height: auto;
+box-shadow:5px 5px 5px #888888;
 /* display: flex;
 flex-shrink: 0; */
+}
+
+button {
+background-color: rgb(51, 61, 212);
+color: white;
+padding: 10px 20px;
+border: solid white 1px;
+border-radius: 5px;
+font-size: 14px;
+font-weight: 550;
+cursor: pointer;
+width: 100px;
+height: auto;
+}
+
+button:active {
+    box-shadow: 4px 4px 4px #666666;
 }
 
 .paper {
@@ -46,6 +64,8 @@ font-weight: 550;
 cursor: pointer;
 width: 100px;
 height: auto;
+box-shadow:5px 5px 5px #888888;
+
 }
 
 .scissors {
@@ -59,6 +79,8 @@ font-weight: 550;
 cursor: pointer;
 width: 100px;
 height: auto;
+box-shadow:5px 5px 5px #888888;
+
 }
 
 
@@ -69,7 +91,13 @@ color: #1F2937;
 }
 
 .score {
-font-size: 40px;
+font-size: 32px;
 font-weight: 550;
 color: #2926dd;
+}
+
+.final-score {
+font-size: 32px;
+font-weight: 550;
+color: #dd264e;
 }

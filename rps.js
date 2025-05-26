@@ -75,14 +75,14 @@ let buttons = document.querySelectorAll("button");
     button.addEventListener("click", function() {
         humanSelection = this.textContent.toLowerCase();
         playRound();
-    const div = document.querySelector(".score");
+    const score = document.querySelector(".score");
+    const finalScore = document.querySelector(".final-score");
     var replay = document.querySelector(".replay");
-    if (humanScore < 5 && computerScore < 5) {
-    let currentScore = "Current score: " + humanScore + " - " + computerScore;
-    div.textContent = currentScore;
-    }
+    let currentScore = "Score: " + humanScore + " - " + computerScore;
+    score.textContent = currentScore;
+
     if (humanScore >=5) {
-        div.textContent = 'You WON! You are the Rock Paper Scissors Champion!'
+        finalScore.textContent = 'You WON! You are the Rock Paper Scissors Champion!'
         humanScore = 0;
         computerScore = 0;
         let button = document.createElement('button');
@@ -90,13 +90,14 @@ let buttons = document.querySelectorAll("button");
         button.textContent = 'Replay';
         button.addEventListener("click", function() {
             replay.removeChild(button);
-            div.textContent = '';
+            score.textContent = '';
+            finalScore.textContent = '';
             round.textContent = '';
         }
         )
     }
     if (computerScore>=5) {
-        div.textContent = 'You LOST! Do you want to try again?'
+        finalScore.textContent = 'You LOST! Do you want to try again?'
         humanScore = 0;
         computerScore = 0;
          let button = document.createElement('button');
@@ -104,7 +105,8 @@ let buttons = document.querySelectorAll("button");
         button.textContent = 'Replay';
         button.addEventListener("click", function() {
             replay.removeChild(button);
-            div.textContent = '';
+            score.textContent = '';
+            finalScore.textContent = '';
             round.textContent = '';
         })
     }
