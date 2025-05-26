@@ -1,4 +1,8 @@
 
+let humanScore = 0;
+let computerScore = 0;
+let humanSelection;
+let computerSelection;
 
 function getComputerChoice() {
     let r = Math.random();
@@ -15,46 +19,56 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-function getHumanChoice() {
- let humanSelection = prompt('Input your choice - Rock, Paper or Scissors');
-    humanSelection = humanSelection.toLowerCase();
- return humanSelection;
-}
 
-let humanScore = 0;
-let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-if (humanChoice == 'rock') {
-    if (computerChoice == 'rock') {
+let buttons = document.querySelectorAll("button");
+ buttons.forEach(button => {
+    button.addEventListener("click", function() {
+        humanSelection = this.textContent.toLowerCase();
+        playRound();
+    let currentScore = "Current score: " + humanScore + " - " + computerScore;
+    console.log(currentScore);
+    });
+ });
+
+
+
+
+
+
+function playRound() {
+let computerChoice = getComputerChoice();
+let humanChoice = humanSelection;
+if (humanChoice === 'rock') {
+    if (computerChoice === 'rock') {
         console.log('Tie! We both got Rock!');
     }
-    if (computerChoice == 'paper') {
+    if (computerChoice === 'paper') {
         console.log('You lost! Paper beats Rock!');
         computerScore += 1;
     }
-    if (computerChoice == 'scissors') {
+    if (computerChoice === 'scissors') {
         console.log('You won! Rock beats Scissors!');
         humanScore += 1;
     }
 }
 
-if (humanChoice == 'paper') {
+if (humanChoice === 'paper') {
     if (computerChoice == 'paper') {
         console.log('Tie! We both got Paper!');
     }
-    if (computerChoice == 'scissors') {
+    if (computerChoice === 'scissors') {
         console.log('You lost! Scissors beats Paper!');
         computerScore += 1;
     }
-    if (computerChoice == 'rock') {
+    if (computerChoice === 'rock') {
         console.log('You won! Paper beats Rock!');
         humanScore += 1;
     }
     }
 
 
-if (humanChoice == 'scissors') {
+if (humanChoice === 'scissors') {
     if (computerChoice == 'scissors') {
         console.log('Tie! We both got Scissors!');
     }
@@ -71,24 +85,3 @@ if (humanChoice == 'scissors') {
 }
 
 
-
-let humanSelection;
-let computerSelection;
-
-function playGame() {
-for (let round =1; round < 6; round++) {
-
-
-humanSelection = getHumanChoice();
-computerSelection = getComputerChoice();
-playRound(humanSelection,computerSelection);
-console.log(humanScore);
-console.log(computerScore);
-
-}
-
-}
-
-playGame();
-let finalScore = "Final score: " + humanScore + " - " + computerScore;
-console.log(finalScore);
